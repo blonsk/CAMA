@@ -9,20 +9,12 @@ import javax.persistence.*;
 
 public class Log {
 @Id
-@AttributeOverrides({
-	@AttributeOverride(name="creator", column = @Column(name="creator")),
-	@AttributeOverride(name="creationTime", column = @Column(name="creationTime"))
-})
+@GeneratedValue
+long id;
 	User creator;
 	Date creationTime;
-	String description;
-	Child child;
-	public Log(User creator, String description) {
-		super();
-		this.creator = creator;
-		this.description = description;
-		this.creationTime = new Date();
-	}
+	String text;
+	
 	
 	
 

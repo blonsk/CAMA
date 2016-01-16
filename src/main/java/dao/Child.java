@@ -21,20 +21,28 @@ public class Child {
 	
 	@ManyToOne
 	StudyGroup group;
-	
+	List<String> comments;
 	@ManyToMany
 	List<Parent> parents;
 	
-	@ManyToMany
-	EducationOrganization[] pastEduOrgs;
 
-	public Child(String firstName, String lastName, Address address, EducationOrganization eduOrg, StudyGroup group) {
-		super();
+	public Child(String firstName, String lastName,String comment, StudyGroup group) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address;
-		this.eduOrg = eduOrg;
+		comments.add(comment);
 		this.group = group;
+	}
+
+	public Child() {
+		super();
+	}
+
+	public List<String> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<String> comments) {
+		this.comments = comments;
 	}
 
 	public int getId() {
@@ -92,15 +100,6 @@ public class Child {
 	public void setParents(List<Parent> parents) {
 		this.parents = parents;
 	}
-
-	public EducationOrganization[] getPastEduOrgs() {
-		return pastEduOrgs;
-	}
-
-	public void setPastEduOrg(EducationOrganization pastEduOrg) {
-		pastEduOrgs[pastEduOrgs.length] = pastEduOrg;
-	}
-	
-	
-	
+	@OneToMany
+	List<FamilyMember> familyMembers;
 }   

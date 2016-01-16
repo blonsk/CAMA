@@ -9,16 +9,16 @@ import javax.persistence.OneToMany;
 @Entity
 public class Administrator extends User {
 	@OneToMany(mappedBy = "administrator")
+	
 	List<Manager> managers;
+	
 	public Administrator() {
 		super();
 	}
-
-	public Administrator(String username, String password, boolean accountNonExpired, boolean accountNonLocked,
-			boolean credentialsNonExpired, boolean enabled, List<Authority> authorities, String firstName,
-			String lastName) {
-		super(username, password, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, authorities, firstName,
-				lastName);
+	public Administrator(String firstName, String lastName, String username) {
+		super(firstName, lastName, username);
+		
 	}
-	
+
+		
 }

@@ -14,7 +14,7 @@ public class EducationOrganization {
 	String type;
 	@OneToOne
 	Manager manager;
-	@ManyToOne
+	@OneToMany
 	List<Educator> educators;
 	
 	@Embedded

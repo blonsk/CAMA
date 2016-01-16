@@ -2,23 +2,20 @@ package dao;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
 public class Parent extends User{
 	@ManyToMany
 	List<Child> children;
-
+	
 	public Parent() {
 		super();
 	}
 
-	public Parent(String username, String password, boolean accountNonExpired, boolean accountNonLocked,
-			boolean credentialsNonExpired, boolean enabled, List<Authority> authorities, String firstName,
-			String lastName) {
-		super(username, password, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, authorities, firstName,
-				lastName);
+	public Parent(String firstName, String lastName, String username) {
+		super(firstName, lastName, username);
+		}
+
 	}
-}
